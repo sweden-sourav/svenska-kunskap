@@ -105,8 +105,7 @@ translates questions, choices, categories and explanations. Answer letters never
 Button labels and other interface text stay in English.
 
 For every piece of text the server uses, in this order: (1) the original, if you pick the quiz's own language;
-(2) the per-language column in the file; (3) a LibreTranslate translation; (4) the original text, with a notice that it
-could not be translated.
+(2) the per-language column in the file; (3) a LibreTranslate translation; (4) the original text, with a notice that it could not be translated.
 
 ### 1. Per-language columns (CSV and XLSX, always available, no extra software)
 
