@@ -1,0 +1,19 @@
+# Self-hosted LibreTranslate for the quiz's language switch.
+#   docker compose up libretranslate      (or: npm run translator)
+# The first start downloads the language models (internet needed once, several minutes); they are kept in the
+# "lt-models" volume, after which it runs offline. Listening on localhost only so it is not exposed to the network.
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    ports:
+      - "127.0.0.1:5001:5000"
+    environment:
+      # Only load the languages you need (smaller, faster start). Remove this line to load every language.
+      LT_LOAD_ONLY: "en,sv,de,fr,es,fi,da,nb"
+      LT_UPDATE_MODELS: "true"
+    volumes:
+      - lt-models:/home/libretranslate/.local:rw
+    restart: unless-stopped
+
+volumes:
+  lt-models:
